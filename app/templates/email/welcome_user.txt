@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to MyBlog
+We have just seen you have signed up for our application and want to welcome you to the blog platform. Read quotes from other bloggers, comment, like and don't forget to add your.

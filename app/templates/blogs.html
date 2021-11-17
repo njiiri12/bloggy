@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<br><br>
+    <div class="row text-white">
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col md-1">
+                    </div>
+                <div class="col-md-6">
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    
+                    <h3>Title : {{blog.title}} </h3>
+                    <p>{{blog.content}}</p>
+                    <div>
+                        <a class="btn btn-default btn-sm m-1" href="{{url_for('main.updateblog',blog_id=blog.id)}}">Update Blog</a>
+                        <a class="btn btn-default btn-sm m-1"  data-toggle="modal" data-target="#modalComment">Add Comment</a>
+                        {% if blog.user == current_user %}
+                        <button type="submit" class="btn btn-sm btn-danger m-1" data-toggle="modal" data-target="#modalConfirmDelete">Delete</button>
+                        {% endif %}
+                        
+                    </div> <p> <small style="color: rgb(167, 164, 158);" >{{blog.comment.count()}} comments</small></p>
+                </div>
+                
+                <div class="col-md-5">
+                    <h4><span style="font-style:italic;text-decoration:underline;">Comments</span></h4>
+                    
+                    {% for comment in comments %}
+                    <p class="mt-10 text-white">{{comment.comment}}</p>
+                    <small>By: {{comment.blog.user.username}}</small><
+                    {% endfor %}
+            
+                    
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-md1"></div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+      <div class="modal-content text-center">
+        <div class="modal-header d-flex justify-content-center">
+          <p class="heading">This blog will be deleted!</p>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to continue?</p>
+        </div>
+        <div class="modal-footer flex-center">
+          <form action="{{url_for('main.del_post',blog_id=blog.id)}}" method="POST">
+              <input  type="submit" class="btn  btn-outline-danger btn-sm" value="Yes">
+          </form>
+          <a type="button" class="btn btn-sm btn-danger waves-effect" data-dismiss="modal">No</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-notify modal-info" role="document">
+<div class="modal-content text-center">
+  <div class="modal-header d-flex justify-content-center"  style="background-color: #5B4844;">
+    <p class="heading">Leave your comment</p>
+  </div>
+  <div class="modal-body">
+      <form class="form" action="{{url_for('main.comment',blog_id = blog.id)}}" method="POST">
+          <div class="form-group green-border-focus">
+              <label></label>
+              <textarea class="form-control" placeholder="your comment ......" rows="2" name ="newcomment" required></textarea>
+          </div>
+          <div class="modal-footer flex-center">
+              <button class="btn btn-sm btn-outline-success">Submit</button>
+              <a type="button" class="btn btn-outline-danger btn-sm " data-dismiss="modal">Quit</a>
+          </div>
+      </form>
+  </div>
+ 
+
+</div>
+</div>
+</div>
+
+{% endblock %}

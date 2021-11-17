@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+<div class="container colormg">
+    <div class="row">
+        
+        <div class="col-md-4">
+            <div class="content-section mt-4">
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message}}
+                </div>
+                {% endfor %}
+                {% if errors %}
+                {% for error in errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+                {% endif %}
+                <div class="card testimonial-card" style="background-color: rgba(99, 90, 69, 0.224);">
+                    <div class="card-up"></div>
+                    <div class="avatar mx-aut" style="color: rgb(167, 164, 158);">
+                            <img src="{{profile_pic_path}}" class="rounded-circle account-img mt-2" alt="Picture" style="width: 250px;height:250px;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-right" style="color: rgb(167, 164, 158);" ><strong>{{ current_user.username | title }}</strong></h5>
+                        <p class="text-right"><a href="/">{{ current_user.email }}</a></p>
+                        <p style="color: rgb(167, 164, 158);" > {{ current_user.bio}} </p>
+                        <button class="btn btn-default btn-sm" id="showform">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <div class="container mt-4">
+                <div id="profileupdate" style="color: white;">
+                    {{wtf.quick_form(form)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

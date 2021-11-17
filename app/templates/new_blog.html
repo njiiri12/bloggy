@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+<div  i="particles-js" style="color: white;" >
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="text-center">Start Blogging By Posting One</h2>
+            {{wtf.quick_form(form)}}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>  
+{% endblock %}  
