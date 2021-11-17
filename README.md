@@ -43,8 +43,8 @@ This is a flask developed personal blogging website that allows registered users
 ## Setup Requirements
   Here's a brief intro about what a developer must do in order to start running the app locally:
 
-  ```
-  $ git clone https://github.com/DjCooGie/MyBlog.git
+  ```https://github.com/njiiri12/bloggy.git
+  $ git clone 
   $ cd MyBlog/
   ```
   * create a virtual environment
