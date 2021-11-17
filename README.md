@@ -74,7 +74,8 @@ This is a flask developed personal blogging website that allows registered users
 No known bugs
 
 ## Site Live Link
-[https://evan-blog-ups.herokuapp.com/](https://evan-blog-ups.herokuapp.com/)
+https://njiiribloggy.herokuapp.com/login
+
 
 #### Collaborate
 >Incase of any questions, problems or ideas concerning the app, feel free to reach out to me:
