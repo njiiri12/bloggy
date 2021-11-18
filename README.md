@@ -6,6 +6,7 @@ This is a flask developed personal blogging website that allows registered users
 
 
 ### Blog
+A personall blog project to express once opinions and thoughts
 
 
 
