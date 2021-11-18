@@ -7,7 +7,7 @@ This is a flask developed personal blogging website that allows registered users
 
 ### Blog
 
-![alt text](bloog.png)
+
 
 
 ## BDD
