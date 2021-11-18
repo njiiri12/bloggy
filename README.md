@@ -79,8 +79,8 @@ https://njiiribloggy.herokuapp.com/login
 
 #### Collaborate
 >Incase of any questions, problems or ideas concerning the app, feel free to reach out to me:
->>Github: [](https://github.com/DjCooGie)
->>Email: evansonchagwa01@gmail.com
+>>Github:njerinjiiri@gmail.com
+>>Email: njerinjiiri@gmail.com
 
 #### License
 MIT
