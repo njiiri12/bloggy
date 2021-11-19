@@ -4,7 +4,7 @@ class Config:
     '''
     Parent configuration class
     '''
-    debug = False
+    debug = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://njiiri:li@localhost/njiiriblog'
     #  email configurations
